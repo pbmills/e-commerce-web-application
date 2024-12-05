@@ -3,14 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import useCart from "@/hooks/useCart";
+import { useCount } from "../context/CountContext";
 
-interface ProductProps {
+interface Item {
   id: number;
   title: string;
   description: string;
   price: number;
   image: string;
+  qty: number;
 }
 
 export default function ProductDetail({
@@ -19,9 +20,8 @@ export default function ProductDetail({
   description,
   price,
   image,
-}: ProductProps) {
+}: Item) {
   const [qty, setQty] = useState<number>(1);
-  const { addToCart } = useCart();
 
   const decrease = () => {
     if (qty > 1) {
@@ -30,13 +30,15 @@ export default function ProductDetail({
   };
 
   const increase = () => {
-    if (qty < 10) {
+    if (qty < 100) {
       setQty(qty + 1);
     }
   };
 
+  const { addToCart } = useCount();
+
   return (
-    <article className="inner pt-12 pb-24 xl:pt-24">
+    <article className="inner pt-12 pb-24">
       {/* Back Button */}
       <Link href="/" className="flex items-center gap-1 group max-w-max">
         <svg
@@ -56,7 +58,7 @@ export default function ProductDetail({
         Go Back
       </Link>
       {/* Title */}
-      <h1 className="text-4xl xl:text-6xl mt-4">{title}</h1>
+      <h1 className="text-4xl xl:text-6xl mt-8 xl:mt-16">{title}</h1>
       {/* Content */}
       <section className="mt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
         {/* Left */}
@@ -133,15 +135,15 @@ export default function ProductDetail({
           {/* CTA */}
           <div className="w-full mt-6 flex flex-row gap-4 max-sm:justify-between">
             <button
-              onClick={() => addToCart(id, qty)}
+              onClick={() => addToCart({ id: id, qty: qty })}
               role="button"
-              className="py-3 px-6 rounded-full bg-sky-200 text-sky-700 font-bold hover:bg-sky-100 transition-colors"
+              className="py-3 px-6 rounded-full bg-indigo-200 text-indigo-700 font-bold hover:bg-indigo-100 transition-colors"
             >
               Add to cart
             </button>
             <button
               role="button"
-              className="py-3 px-6 rounded-full bg-sky-700 text-white font-bold hover:bg-sky-600 transition-colors"
+              className="py-3 px-6 rounded-full bg-indigo-700 text-white font-bold hover:bg-indigo-600 transition-colors"
             >
               Buy now
             </button>

@@ -9,5 +9,5 @@ export default async function ProductList({
   const id = (await params).id;
   const product = await fetchProductById(id);
 
-  return <ProductDetail id={id} {...product} />;
+  return <ProductDetail id={Number(id)} {...product} />;
 }
