@@ -21,17 +21,6 @@ interface CartItem {
 
 const queryClient = new QueryClient();
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,13 +31,9 @@ export default function RootLayout({
       <CountProvider>
         <html lang="en">
           <ReactLenis root>
-            <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
-            >
+            <body className="antialiased bg-warm-gray font-poppins">
               <Header />
-              <div className="min-h-dvh relative z-0 bg-slate-50">
-                {children}
-              </div>
+              <div className="min-h-dvh relative z-0">{children}</div>
             </body>
           </ReactLenis>
         </html>

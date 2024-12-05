@@ -58,11 +58,11 @@ export default function ProductDetail({
         Go Back
       </Link>
       {/* Title */}
-      <h1 className="text-4xl xl:text-6xl mt-8 xl:mt-16">{title}</h1>
+      <h1 className="heading-1 mt-8 xl:mt-16">{title}</h1>
       {/* Content */}
       <section className="mt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
         {/* Left */}
-        <div className="w-full aspect-[0.8] rounded-3xl bg-white relative max-w-sm">
+        <div className="w-full aspect-square rounded-md bg-white relative max-w-sm">
           <Image
             src={image}
             alt={title}
@@ -74,16 +74,18 @@ export default function ProductDetail({
         <div className="flex-1">
           <div className="flex justify-between gap-6 items-center">
             {/* Price */}
-            <p className="text-4xl font-bold">${price.toFixed(2)}</p>
+            <p className="text-4xl xl:text-6xl font-bold font-heading">
+              ${price.toFixed(2)}
+            </p>
             {/* Quantity - Max 10 */}
-            <div className="flex items-stretch rounded-xl bg-white text-xl divide-x divide-slate-50 overflow-hidden">
+            <div className="flex items-stretch rounded-md bg-stone-50 text-xl divide-x divide-warm-gray overflow-hidden">
               <button
                 role="button"
                 onClick={decrease}
-                className={`p-3 md:p-4 rounded-l-xl ${
+                className={`p-3 md:p-4 rounded-l-md ${
                   qty === 1
                     ? "cursor-not-allowed opacity-50"
-                    : "hover:bg-slate-100 transition-colors"
+                    : "hover:bg-stone-100 transition-colors"
                 }`}
               >
                 <span className="sr-only">Decrease quantity</span>
@@ -108,10 +110,10 @@ export default function ProductDetail({
               <button
                 role="button"
                 onClick={increase}
-                className={`p-3 md:p-4 rounded-r-xl ${
+                className={`p-3 md:p-4 rounded-r-md ${
                   qty === 10
                     ? "cursor-not-allowed opacity-50"
-                    : "hover:bg-slate-100 transition-colors"
+                    : "hover:bg-stone-100 transition-colors"
                 }`}
               >
                 <span className="sr-only">Increase quantity</span>
@@ -135,27 +137,33 @@ export default function ProductDetail({
           {/* CTA */}
           <div className="w-full mt-6 flex flex-row gap-4 max-sm:justify-between">
             <button
-              onClick={() => addToCart({ id: id, qty: qty })}
+              onClick={() =>
+                addToCart({
+                  id: id,
+                  title: title,
+                  description: description,
+                  price: price,
+                  image: image,
+                  qty: qty,
+                })
+              }
               role="button"
-              className="py-3 px-6 rounded-full bg-indigo-200 text-indigo-700 font-bold hover:bg-indigo-100 transition-colors"
+              className="btn-secondary"
             >
               Add to cart
             </button>
-            <button
-              role="button"
-              className="py-3 px-6 rounded-full bg-indigo-700 text-white font-bold hover:bg-indigo-600 transition-colors"
-            >
+            <button role="button" className="btn-primary">
               Buy now
             </button>
           </div>
           <div className="mt-8 space-y-2">
-            <p className="text-slate-500 first-letter:capitalize">
+            <p className="text-stone-500 first-letter:capitalize">
               {description}
             </p>
-            <p className="text-slate-500 first-letter:capitalize">
+            <p className="text-stone-500 first-letter:capitalize">
               {description}
             </p>
-            <p className="text-slate-500 first-letter:capitalize">
+            <p className="text-stone-500 first-letter:capitalize">
               {description}
             </p>
           </div>

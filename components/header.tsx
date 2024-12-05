@@ -1,19 +1,20 @@
 import Link from "next/link";
-import { useCount } from "../context/CountContext";
+import { useCount } from "@/context/CountContext";
 
 export default function Header() {
   const { cartQty } = useCount();
   return (
-    <header className="w-full bg-gradient-to-r from-indigo-400 to-blue-400 text-white">
+    <header className="w-full">
       <div className="inner flex items-center justify-between py-6">
         <Link href="/">
+          <span className="sr-only">Home</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-12"
+            className="size-12 xl:size-16"
           >
             <path
               strokeLinecap="round"
@@ -22,7 +23,7 @@ export default function Header() {
             />
           </svg>
         </Link>
-        <button className="flex items-center gap-3 text-xl">
+        <Link href="/cart" className="flex items-center gap-3 text-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -38,7 +39,7 @@ export default function Header() {
             />
           </svg>
           {cartQty}
-        </button>
+        </Link>
       </div>
     </header>
   );

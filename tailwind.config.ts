@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
   content: [
@@ -8,7 +9,15 @@ export default {
   ],
   darkMode: "selector",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: ["Cormorant Upright", ...defaultTheme.fontFamily.serif],
+        poppins: ["Poppins", ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        "warm-gray": "#e9e7e4",
+      },
+    },
   },
   plugins: [],
 } satisfies Config;

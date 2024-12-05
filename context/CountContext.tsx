@@ -8,10 +8,15 @@ import {
 
 interface Cart {
   id: number;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
   qty: number;
 }
 
 interface CountContextType {
+  cart: Cart[];
   cartQty: number;
   addToCart: (e: Cart) => void;
 }
@@ -57,7 +62,7 @@ export const CountProvider = ({ children }: CountProviderProps) => {
   };
 
   return (
-    <CountContext.Provider value={{ cartQty, addToCart }}>
+    <CountContext.Provider value={{ cart, cartQty, addToCart }}>
       {children}
     </CountContext.Provider>
   );
