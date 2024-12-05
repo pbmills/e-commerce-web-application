@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function Cart() {
-  const { cart, cartQty } = useCount();
+  const { cart, cartQty, removeFromCart } = useCount();
   const router = useRouter();
 
   const back = () => {
@@ -71,6 +71,11 @@ export default function Cart() {
                     <div className="flex items-baseline gap-2 text-stone-500 text-sm">
                       <span>Total Price : </span>
                       <span>${(item.qty * item.price).toFixed(2)}</span>
+                    </div>
+                    <div className="w-full">
+                      <button onClick={() => removeFromCart(item.id)}>
+                        Remove
+                      </button>
                     </div>
                   </div>
                 </div>

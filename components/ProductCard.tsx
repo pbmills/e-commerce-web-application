@@ -27,11 +27,13 @@ export default function ProductCard({
         />
       </div>
       <div className="w-full mt-4 flex flex-col flex-1">
-        <h2 className="font-semibold line-clamp-2 text-lg">{title}</h2>
-        <p className="text-neutral-500 mt-1 text-sm flex-1 line-clamp-3">
-          {description}
-        </p>
-        <p className="font-bold mt-4 text-4xl font-heading">
+        <div className="flex-1">
+          <h2 className="font-semibold line-clamp-2 text-lg">{title}</h2>
+          <p className="text-neutral-500 mt-1 text-sm line-clamp-3">
+            {description}
+          </p>
+        </div>
+        <p className="font-bold mt-4 text-2xl font-heading">
           ${price.toFixed(2)}
         </p>
       </div>

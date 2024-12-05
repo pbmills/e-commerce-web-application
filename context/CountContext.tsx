@@ -19,6 +19,7 @@ interface CountContextType {
   cart: Cart[];
   cartQty: number;
   addToCart: (e: Cart) => void;
+  removeFromCart: (e: number) => void;
 }
 
 // Create the context with default values
@@ -61,8 +62,17 @@ export const CountProvider = ({ children }: CountProviderProps) => {
     });
   };
 
+  const removeFromCart = (id: number) => {
+    setCart((prev) => {
+      const updatedCart = [...prev];
+      const index = cart.findIndex((i) => i.id === id);
+      updatedCart.splice(index, 1);
+      return updatedCart;
+    });
+  };
+
   return (
-    <CountContext.Provider value={{ cart, cartQty, addToCart }}>
+    <CountContext.Provider value={{ cart, cartQty, addToCart, removeFromCart }}>
       {children}
     </CountContext.Provider>
   );

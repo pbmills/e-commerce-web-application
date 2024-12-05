@@ -51,24 +51,25 @@ export default function Home() {
   }, [data]);
 
   // Handle loading, error, and render the product cards
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Something went wrong</p>;
+  if (isLoading) return <p className="py-12 text-center">Loading...</p>;
+  if (error) return <p className="py-12 text-center">Something went wrong</p>;
 
   return (
     <article className="w-full">
-      <div className="inner">
-        <h1 className="heading-1 py-8 md:py-12 xl:py-16">Product Listing</h1>
+      <div className="inner text-center mt-8 xl:mt-16">
+        <h1 className="heading-0">Our Products</h1>
+        <p className="mt-2">what kind of product line are you looking for?</p>
       </div>
 
-      {/* Product Grid */}
-      <div className="inner pb-32">
+      <div className="inner pb-32 mt-16 xl:mt-20">
+        {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {batches[page - 1]?.map((product: Product) => (
             <ProductCard key={product.id} {...product} />
           ))}
         </div>
         {/* Pagination Controls */}
-        <div className="flex justify-between items-center mt-12">
+        <div className="flex justify-between items-center mt-12 xl:mt-24">
           <button
             onClick={prev}
             disabled={page === 1}

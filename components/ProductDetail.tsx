@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { useCount } from "../context/CountContext";
+import { useRouter } from "next/navigation";
 
 interface Item {
   id: number;
@@ -22,6 +23,8 @@ export default function ProductDetail({
   image,
 }: Item) {
   const [qty, setQty] = useState<number>(1);
+  const { cart, addToCart } = useCount();
+  const router = useRouter();
 
   const decrease = () => {
     if (qty > 1) {
@@ -35,7 +38,19 @@ export default function ProductDetail({
     }
   };
 
-  const { addToCart } = useCount();
+  const buyNow = () => {
+    if (!cart.some((i) => i.id === id)) {
+      addToCart({
+        id: id,
+        title: title,
+        description: description,
+        price: price,
+        image: image,
+        qty: qty,
+      });
+    }
+    router.push("/cart");
+  };
 
   return (
     <article className="inner pt-12 pb-24">
@@ -60,7 +75,7 @@ export default function ProductDetail({
       {/* Title */}
       <h1 className="heading-1 mt-8 xl:mt-16">{title}</h1>
       {/* Content */}
-      <section className="mt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
+      <section className="mt-8 xl:mt-16 flex flex-col gap-8 lg:flex-row lg:gap-12">
         {/* Left */}
         <div className="w-full aspect-square rounded-md bg-white relative max-w-sm">
           <Image
@@ -74,15 +89,15 @@ export default function ProductDetail({
         <div className="flex-1">
           <div className="flex justify-between gap-6 items-center">
             {/* Price */}
-            <p className="text-4xl xl:text-6xl font-bold font-heading">
+            <p className="text-2xl xl:text-4xl font-bold font-heading">
               ${price.toFixed(2)}
             </p>
             {/* Quantity - Max 10 */}
-            <div className="flex items-stretch rounded-md bg-stone-50 text-xl divide-x divide-warm-gray overflow-hidden">
+            <div className="flex items-stretch rounded-md bg-stone-50 text-lg divide-x divide-warm-gray overflow-hidden">
               <button
                 role="button"
                 onClick={decrease}
-                className={`p-3 md:p-4 rounded-l-md ${
+                className={`p-3 rounded-l-md ${
                   qty === 1
                     ? "cursor-not-allowed opacity-50"
                     : "hover:bg-stone-100 transition-colors"
@@ -104,13 +119,13 @@ export default function ProductDetail({
                   />
                 </svg>
               </button>
-              <span className="px-3 md:px-5 grid place-items-center w-12 md:w-16">
+              <span className="px-3 md:px-5 grid place-items-center w-12">
                 {qty}
               </span>
               <button
                 role="button"
                 onClick={increase}
-                className={`p-3 md:p-4 rounded-r-md ${
+                className={`p-3 rounded-r-md ${
                   qty === 10
                     ? "cursor-not-allowed opacity-50"
                     : "hover:bg-stone-100 transition-colors"
@@ -152,7 +167,7 @@ export default function ProductDetail({
             >
               Add to cart
             </button>
-            <button role="button" className="btn-primary">
+            <button onClick={buyNow} role="button" className="btn-primary">
               Buy now
             </button>
           </div>

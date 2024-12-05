@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Cormorant Upright", ...defaultTheme.fontFamily.serif],
+        heading: ["Adamina", ...defaultTheme.fontFamily.serif],
         poppins: ["Poppins", ...defaultTheme.fontFamily.sans],
       },
       colors: {
