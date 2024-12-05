@@ -77,7 +77,7 @@ Ensure you have the following installed:
 ## Deployment
 
 This application is deployable on platforms like [Vercel](https://vercel.com/). If a live demo is available, it can be accessed via the following link:  
-**[Live Demo Link](#)** *(Add your deployment link here if available)*
+**[Live Demo Link](#)** *(https://e-commerce-web-application-pri.vercel.app/).
 
 ---
 
