@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-commerce Web Application
+
+This project is a responsive e-commerce web application developed as part of a technical assessment. It demonstrates the use of **Next.js**, **TypeScript**, and **Tailwind CSS** to create a modern, scalable web application.
+
+## Features
+
+### Functional
+1. **Product Listing Page**  
+   - Displays a list of products with images, names, and prices.
+   - Supports pagination for seamless browsing.
+
+2. **Product Detail Page**  
+   - Provides detailed information about a selected product.
+   - Includes an "Add to Cart" button.
+
+3. **Shopping Cart**  
+   - Allows users to view products added to their cart.
+   - Displays total price and quantity of items in the cart.
+   - Enables removal of items from the cart.
+
+4. **Responsive Design**  
+   - Fully responsive across desktop, tablet, and mobile devices.
+
+### Technical
+- **Frameworks and Libraries:** Built with Next.js, TypeScript, and styled using Tailwind CSS.
+- **State Management:** Efficient cart and product state handling.
+- **API Integration:** Fetches product data from [Fake Store API](https://fakestoreapi.com/).
+- **Code Quality:** Applies SOLID principles, uses reusable components, and follows clean, maintainable coding practices.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- npm or yarn package manager
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/pbmills/e-commerce-web-application.git
+   cd e-commerce-web-application
+   ```
 
-## Learn More
+2. Install the dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Thought Process and Assumptions
+
+- Focused on delivering core functionality while maintaining code quality and performance.
+- Leveraged lightweight, scalable libraries to avoid unnecessary complexity.
+- Time-boxed the implementation to align with the 6-hour guideline for the test.
+- Assumed the use of a mock API for product data, and addressed any missing endpoints with placeholder logic.
+
+---
+
+## Deployment
+
+This application is deployable on platforms like [Vercel](https://vercel.com/). If a live demo is available, it can be accessed via the following link:  
+**[Live Demo Link](#)** *(Add your deployment link here if available)*
+
+---
+
+## Future Improvements
+
+- **Authentication:** Add user login and signup functionality.
+- **Checkout Process:** Implement a full-fledged checkout flow.
+- **Enhanced Features:** Include product filtering, sorting, and search.
+- **SEO:** Optimize the application for search engines.
+
+---
+
+## Technologies Used
+
+- **Framework:** Next.js
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+- **API:** Fake Store API
+- **Package Manager:** npm/yarn
+
+---
+
+## Acknowledgments
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Fake Store API](https://fakestoreapi.com/)
+
+---
+
+## Contact
+
+For any questions or feedback, feel free to reach out:  
+**Email:** pri@codi.nz
+**GitHub:** [https://github.com/pbmills](https://github.com/pbmills)
