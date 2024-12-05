@@ -1,23 +1,21 @@
 "use client";
 
-import localFont from "next/font/local";
 import "./globals.css";
 
 import { ReactLenis } from "lenis/react";
-import { useEffect, useState } from "react";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import { CountProvider } from "@/context/CountContext";
 import Header from "@/components/header";
 
-interface CartItem {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-  qty: number;
-}
+// interface CartItem {
+//   id: number;
+//   title: string;
+//   description: string;
+//   price: number;
+//   image: string;
+//   qty: number;
+// }
 
 const queryClient = new QueryClient();
 
